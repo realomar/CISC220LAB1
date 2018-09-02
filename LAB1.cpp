@@ -23,6 +23,7 @@ int multiplicationTable2(); //problem 7 fix '0' issue
 int collatzConjecture(); //problem 8
 int leapYear(); //problem 9
 int xStars(int a); //problem 10
+int collatzConjecture2(int a, int b); //problem 11
 
 int main(){ // problem 1
 	cout << "Hello World" << endl; //prints out "Hello World"
@@ -48,6 +49,10 @@ int main(){ // problem 1
 	xStars(5); //test case 1 for problem 10, xStars(), this test case uses the number 5 as a test.
 	xStars(7); //test case 3 for problem 10, xStars(), this test case uses the number 7 as a test.
 	xStars(10); //test case 2 for problem 10, xStars(), this test case uses the number 10 as a test.
+	stars();
+	collatzConjecture2(5, 11); //test case 1 for problem 11, collatzConjecture2(int a, int b), using the integers 5 an 11 and testing them and all the numbers in between for the Collatz Conjecture.
+	collatzConjecture2(8, 20); //test case 1 for problem 11, collatzConjecture2(int a, int b), using the integers 5 an 11 and testing them and all the numbers in between for the Collatz Conjecture.
+	collatzConjecture2(7, 42); //test case 1 for problem 11, collatzConjecture2(int a, int b), using the integers 5 an 11 and testing them and all the numbers in between for the Collatz Conjecture.
 	stars();
 	return 0;
 }
@@ -148,7 +153,7 @@ int leapYear(){ //problem 9, no input parameters, this function calculates all t
 	return 0;
 }
 
-int xStars(int a){ //this function takes an integer as an input parameter, then prints out the stars in the shape of an x that is 2 times that integer minus 1 tall. This function uses nested for loops, and if the input is an even number it rounds it up to the next odd number. This function doesn't return anything, just prints out an x of stars.
+int xStars(int a){ //problem 10 this function takes an integer as an input parameter, then prints out the stars in the shape of an x that is 2 times that integer minus 1 tall. This function uses nested for loops, and if the input is an even number it rounds it up to the next odd number. This function doesn't return anything, just prints out an x of stars.
 	if (a%2 == 0){
 		a = a+1;
 	}
@@ -180,4 +185,20 @@ int xStars(int a){ //this function takes an integer as an input parameter, then 
 	return 0;
 }
 
+int collatzConjecture2(int a, int b){ //problem 11, this function takes two integer input parameters, the first integer parameter is smaller than the second integer parameter. This function modifies the first collatzConjecture(), to test all the numbers between the two integer parameters (without asking the user for an input) if they follow the Collatz Conjecture the function will print out that number followed by a 1 if the conjecvture worked. The function will loop through all the numbers between and it should return nothing.
+	for(int number = a;number <b+1;number++){
+		cout << number << endl;
+		int testNumber = number;
+		while (testNumber != 1){
+			if (testNumber % 2 == 0){
+				testNumber = testNumber /2;
+			}
+			else{
+				testNumber = testNumber*3 +1;
+			}
+		}
+		cout << "1" << endl;
+	}
+	return 0;
+}
 
