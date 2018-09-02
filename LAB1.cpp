@@ -24,6 +24,8 @@ int collatzConjecture(); //problem 8
 int leapYear(); //problem 9
 int xStars(int a); //problem 10
 int collatzConjecture2(int a, int b); //problem 11
+bool isPrimeRecursion(int number, int divisor); //problem 12
+int multiplicationTableRecursion(int number, int multiplier); //problem 13
 
 int main(){ // problem 1
 	cout << "Hello World" << endl; //prints out "Hello World"
@@ -46,13 +48,21 @@ int main(){ // problem 1
 	stars();
 	leapYear(); //test case for problem 9, leapYear(), prints out the leap years in the next 400 years according to some criteria.
 	stars();
-	xStars(5); //test case 1 for problem 10, xStars(), this test case uses the number 5 as a test.
-	xStars(7); //test case 3 for problem 10, xStars(), this test case uses the number 7 as a test.
-	xStars(10); //test case 2 for problem 10, xStars(), this test case uses the number 10 as a test.
+	xStars(5); //test case 1 for problem 10, xStars(), this test case uses the number 5 as a test. Will print out an x star with 9 columns and 9 rows.
+	xStars(7); //test case 3 for problem 10, xStars(), this test case uses the number 7 as a test. Will print out an x star with 13 columns and 13 rows.
+	xStars(10); //test case 2 for problem 10, xStars(), this test case uses the number 10 as a test. Will print out an x star with 21 columns and 21 rows
 	stars();
 	collatzConjecture2(5, 11); //test case 1 for problem 11, collatzConjecture2(int a, int b), using the integers 5 an 11 and testing them and all the numbers in between for the Collatz Conjecture.
 	collatzConjecture2(8, 20); //test case 1 for problem 11, collatzConjecture2(int a, int b), using the integers 5 an 11 and testing them and all the numbers in between for the Collatz Conjecture.
 	collatzConjecture2(7, 42); //test case 1 for problem 11, collatzConjecture2(int a, int b), using the integers 5 an 11 and testing them and all the numbers in between for the Collatz Conjecture.
+	stars();
+	cout << isPrimeRecursion(47, 2) << endl; //test case 1 for problem 12, isPrimeRecursion(int number, int divisor), using the first input parameter as 47 (the number to check if its prime), with the second number the divisor being 2. This function will use recursion and print out true (1) to the console.
+	cout << isPrimeRecursion(56, 2) << endl; //test case 1 for problem 12, isPrimeRecursion(int number, int divisor), using the first input parameter as 56 (the number to check if its prime), with the second number the divisor being 2. This function will use recursion and print out false (0) to the console.
+	cout<< isPrimeRecursion(2017, 2) << endl; //test case 1 for problem 12, isPrimeRecursion(int number, int divisor), using the first input parameter as 2017 (last year) (the number to check if its prime), with the second number the divisor being 2. This function will use recursion and print out true (1) to the console.
+	stars();
+	multiplicationTableRecursion(3,1); //test case 1 for problem 13, multiplicationTableRecursion(int number, int multiplier), using the first input parameter as 3 (the number to make the multiplication table for), with the second number being 1, the multiplier. This function will use recursion to print out the multiplication table for the first input parameter, the number 3.
+	multiplicationTableRecursion(6,1); //test case 1 for problem 13, multiplicationTableRecursion(int number, int multiplier), using the first input parameter as 6 (the number to make the multiplication table for), with the second number being 1, the multiplier. This function will use recursion to print out the multiplication table for the first input parameter, the number 6.
+	multiplicationTableRecursion(9,1); //test case 1 for problem 13, multiplicationTableRecursion(int number, int multiplier), using the first input parameter as 9 (the number to make the multiplication table for), with the second number being 1, the multiplier. This function will use recursion to print out the multiplication table for the first input parameter, the number 9.
 	stars();
 	return 0;
 }
@@ -201,4 +211,35 @@ int collatzConjecture2(int a, int b){ //problem 11, this function takes two inte
 	}
 	return 0;
 }
+
+bool isPrimeRecursion(int number, int divisor){//problem 12, this function takes 2 input parameters, the first one is the number to check if its prime or not, and the second number is the divisor. The function uses recursion to figure out if the number is prime, the second parameter should always be 2. This function will reurn back a boolean, true (1) if the number is prime, false (0) if the number isn't prime.
+	if(number <= 1){
+		return false;
+	}
+	else if(divisor == number){
+		return true;
+	}
+	else if(number % divisor == 0){
+		return false;
+	}
+	else{
+		return isPrimeRecursion(number, divisor +1);
+	}
+}
+
+int multiplicationTableRecursion(int number, int multiplier){//problem 13, this function takes 2 input parameters, the first one being the number to get a multiplier table for, the second number is the multiplier (the number to be multiplied by the first number). The multiplier (second parameter) should always be 1 at the start. This function uses recursion to print out the multiplication table of that number from the number 1 to 12. This function returns nothing but ut prints out the multiplication table of the number in the first input parameter.
+	if(multiplier <13){
+		if(multiplier == 12){
+			cout << number << " multiplied by " << multiplier << " = " << number*multiplier << endl;
+			cout << "" << endl; //leaving a blank line empty to help differentiate between the 3 different test cases in main().
+		}
+
+		else{
+			cout << number << " multiplied by " << multiplier << " = " << number*multiplier << endl;
+			multiplicationTableRecursion(number, multiplier+1);
+		}
+	}
+	return 0;
+}
+
 
