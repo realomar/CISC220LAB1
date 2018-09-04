@@ -19,7 +19,7 @@ bool isPrime(int a); // problem 3
 int sumTo300(); //problem 4
 int termsFor100K(); //problem 5
 int multiplicationTable(int a); //problem 6
-int multiplicationTable2(); //problem 7 fix '0' issue
+int multiplicationTable2(); //problem 7
 int collatzConjecture(); //problem 8
 int leapYear(); //problem 9
 int xStars(int a); //problem 10
