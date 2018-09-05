@@ -36,7 +36,7 @@ int main(){ // problem 1
 	stars();
 	sumTo300(); //test case for problem 4, sumTo300(), prints out the sum each 20 terms and ends with 45150.
 	stars();
-	cout <<"The number of terms required for the sum of all natural numbers starting from 1 is" << termsFor100K() << endl; //test case for problem 5, termsFor100K. The number of terms is 447.
+	cout <<"The number of terms required for the sum of all natural numbers starting from 1 is " << termsFor100K() << endl; //test case for problem 5, termsFor100K. The number of terms is 447.
 	stars();
 	multiplicationTable(5); //test case 1 for problem 6, multiplicationTable() for the number 5. Prints out the multiplication table for the number 5 with the integer numbers from 1 to 12.
 	multiplicationTable(9); //test case 2 for problem 6, multiplicationTable() for the number 9. Prints out the multiplication table for the number 9 with the integer numbers from 1 to 12.
@@ -113,6 +113,9 @@ int termsFor100K(){ //problem 5, takes no input parameter, this function will fi
 }
 
 int multiplicationTable(int a){ //problem 6, takes an integer number as an input and it prints out the multiplication tables between 1 and 12 and that integer using a for loop. This function returns nothing but prints out a multiplication table (12 lines long) for the integer input.
+	cout << "Multiplication table for the number " << a << ":" << endl;
+	cout << " " << endl;
+
 	for(int b = 1; b<13; b++){
 		cout << a << " multiplied by " << b << " = " << a*b << endl;
 	}
