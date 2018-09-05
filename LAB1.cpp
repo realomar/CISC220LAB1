@@ -10,8 +10,8 @@
  * This file contains functions for lab 1. The functions aren't related
  * in any other way that they are required for lab 1.
  */
-#include <iostream>
-#include <stdlib.h>
+#include <iostream> //imports input/output
+#include <stdlib.h> //includes std library
 using namespace std;
 
 int stars(); // problem 2
@@ -68,17 +68,17 @@ int main(){ // problem 1
 }
 
 int stars(){ //problem 2, takes no parameters and prints out a line of stars to help differentiate the tests of one question from the others.
-	cout << "***********************************" << endl;
-	return 0;
+	cout << "***********************************" << endl; // prints stars
+	return 0; //dummy return statement
 }
 
 bool isPrime(int a){ //problem 3, take an integer parameter to determine whether that parameter is prime or not, and it returns a boolean: True (or 1) if it is prime, False (or 0) if its not.
 	if(a <= 1){
-		return false;
+		return false; // 0 or negative numbers cannot be prime.
 	}
 	else{
 		int div = 2;
-		while(div != a){
+		while(div != a){ // this loop divides the input by progressively larger numbers to find a potential factor
 			if (a % div  == 0)
 			{
 				return false;
@@ -93,7 +93,7 @@ bool isPrime(int a){ //problem 3, take an integer parameter to determine whether
 
 int sumTo300(){ //problem 4, takes no input parameters and calculates the sum of the first 300 natural numbers and it displays the total after every 20 terms using a if statement to check if the the number of terms is a multiple of 20. This function returns nothing but prints out the sum every 20 terms.
 	int sum = 0;
-	for(int term = 0; term < 301; term++){
+	for(int term = 0; term < 301; term++){ // for loop ending at 300, counting up
 		sum = sum +term;
 		if (term % 20 ==0) {
 			cout << sum << endl;
@@ -116,7 +116,7 @@ int multiplicationTable(int a){ //problem 6, takes an integer number as an input
 	cout << "Multiplication table for the number " << a << ":" << endl;
 	cout << " " << endl;
 
-	for(int b = 1; b<13; b++){
+	for(int b = 1; b<13; b++){ // iterates table up to 12
 		cout << a << " multiplied by " << b << " = " << a*b << endl;
 	}
 	cout << " "<< endl; //put a space in to help differentiate between the different multiplication tables for the different test cases.
@@ -124,7 +124,7 @@ int multiplicationTable(int a){ //problem 6, takes an integer number as an input
 }
 
 int multiplicationTable2(){ //problem 7, takes no parameters and loops from 1-12 to print out all the multiplication tables between 1 and 12 using the function from problem 6 while also using a for loop. This function will return nothing but print 12 multiplication tables.
-	for(int i = 1; i<13; i++){
+	for(int i = 1; i<13; i++){ // iterates table up to 12
 		cout <<multiplicationTable(i) << endl;
 	}
 	return 0;
@@ -135,7 +135,7 @@ int collatzConjecture(){ //problem 8, takes no parameters but asks the user o in
 	cout << "Please enter an integer value: ";
 	cin >> number;
 	int loops = 0;
-	while (number != 1){
+	while (number != 1){ //keeps going until number is 1. Iterates loops on each run.
 		if (number % 2 == 0){
 			number = number /2;
 			loops = loops +1;
@@ -151,8 +151,8 @@ int collatzConjecture(){ //problem 8, takes no parameters but asks the user o in
 }
 
 int leapYear(){ //problem 9, no input parameters, this function calculates all the leap years in the next 400 years and prints them out (Starting from 2017). This functions returns nothing, it just prints the leap years as it loops.
-	for (int year = 2017; year < 2418; year++){
-		if (year%4 == 0){
+	for (int year = 2017; year < 2418; year++){ // sets bounds of calculation
+		if (year%4 == 0){ //nested if statements to determine if a given year is a leap year.
 			if (year%100 == 0) {
 				if (year%400 == 0){
 					cout << year<< endl;
@@ -171,7 +171,7 @@ int xStars(int a){ //problem 10 this function takes an integer as an input param
 		a = a+1;
 	}
 
-	for(int row = 1; row <2*a; row++){
+	for(int row = 1; row <2*a; row++){ // iterates through the lines, positioning the characters according to the line number.
 		for(int column = 1; column <2*a; column++){
 			if (row == column){
 				cout <<"*";
@@ -199,10 +199,10 @@ int xStars(int a){ //problem 10 this function takes an integer as an input param
 }
 
 int collatzConjecture2(int a, int b){ //problem 11, this function takes two integer input parameters, the first integer parameter is smaller than the second integer parameter. This function modifies the first collatzConjecture(), to test all the numbers between the two integer parameters (without asking the user for an input) if they follow the Collatz Conjecture the function will print out that number followed by a 1 if the conjecvture worked. The function will loop through all the numbers between and it should return nothing.
-	for(int number = a;number <b+1;number++){
+	for(int number = a;number <b+1;number++){ // iterates until a and b are the same.
 		cout << number << endl;
 		int testNumber = number;
-		while (testNumber != 1){
+		while (testNumber != 1){ // testing collatz conjecture again.
 			if (testNumber % 2 == 0){
 				testNumber = testNumber /2;
 			}
@@ -216,16 +216,16 @@ int collatzConjecture2(int a, int b){ //problem 11, this function takes two inte
 }
 
 bool isPrimeRecursion(int number, int divisor){//problem 12, this function takes 2 input parameters, the first one is the number to check if its prime or not, and the second number is the divisor. The function uses recursion to figure out if the number is prime, the second parameter should always be 2. This function will reurn back a boolean, true (1) if the number is prime, false (0) if the number isn't prime.
-	if(number <= 1){
+	if(number <= 1){ // negative and zero are not prime
 		return false;
 	}
-	else if(divisor == number){
+	else if(divisor == number){ //this scenario does not require recursion
 		return true;
 	}
-	else if(number % divisor == 0){
+	else if(number % divisor == 0){ //number cannot be a prime in this case
 		return false;
 	}
-	else{
+	else{ //calls the same function, with an incremented divisor
 		return isPrimeRecursion(number, divisor +1);
 	}
 }
