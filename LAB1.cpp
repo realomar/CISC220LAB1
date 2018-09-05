@@ -91,7 +91,7 @@ bool isPrime(int a){ //problem 3, take an integer parameter to determine whether
 	}
 }
 
-int sumTo300(){ //problem 4, takes no input parameters and calculates the sum of the first 300 natural numbers and it displays the total after every 20 terms using a if statement to check if the the number of terms is a multiple of 20. This function returns nothing but prints out the sum every 20 terms.
+int sumTo300(){ //problem 4, takes no input parameters and calculates the sum of the first 300 natural numbers and it displays the total after every 20 terms using a if statement to check if the the number of terms is a multiple of 20. This function returns nothing but prints out the sum every 20 terms. It first prints out 0, then 210, then 820, 1830, 3240 and so on till it finally prints 45150
 	int sum = 0;
 	for(int term = 0; term < 301; term++){
 		sum = sum +term;
@@ -102,7 +102,7 @@ int sumTo300(){ //problem 4, takes no input parameters and calculates the sum of
 	return 0;
 }
 
-int termsFor100K(){ //problem 5, takes no input parameter, this function will figure out how many terms in the sum of the natural numbers it requires for the sum to exceed 100,000. This function will return the number of terms required. The function will use a while loop to determine the number of terms required.
+int termsFor100K(){ //problem 5, takes no input parameter, this function will figure out how many terms in the sum of the natural numbers it requires for the sum to exceed 100,000. This function will return the number of terms required. The function will use a while loop to determine the number of terms required. The number of terms required is 447 terms and it prints the number out.
 	int sum = 0;
 	int term = 0;
 	while (sum <100000){
@@ -111,13 +111,25 @@ int termsFor100K(){ //problem 5, takes no input parameter, this function will fi
 	}
 	return term;
 }
-
+// The following problem will print out the following if the input parameter is 8 (for example):
+// 8 x 1 = 8
+// 8 x 2 = 16
+// 8 x 3 = 24
+// 8 x 4 = 32
+// 8 x 5 = 40
+// 8 x 6 = 84
+// 8 x 7 = 56
+// 8 x 8 = 64
+// 8 x 9 = 72
+// 8 x 10 = 80
+// 8 x 11 = 88
+// 8 x 12 = 96
 int multiplicationTable(int a){ //problem 6, takes an integer number as an input and it prints out the multiplication tables between 1 and 12 and that integer using a for loop. This function returns nothing but prints out a multiplication table (12 lines long) for the integer input.
 	cout << "Multiplication table for the number " << a << ":" << endl;
 	cout << " " << endl;
 
 	for(int b = 1; b<13; b++){
-		cout << a << " multiplied by " << b << " = " << a*b << endl;
+		cout << a << " x " << b << " = " << a*b << endl;
 	}
 	cout << " "<< endl; //put a space in to help differentiate between the different multiplication tables for the different test cases.
 	return 0;
